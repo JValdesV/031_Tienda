@@ -5,7 +5,7 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0">
 	
-	<persistence-unit name="tienda-mysql">
+	<persistence-unit name="tienda">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
 		
@@ -16,7 +16,9 @@
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="admin"/>
 			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
 			
 		</properties>
 	</persistence-unit>

@@ -2,6 +2,7 @@ package cl.empresa.tienda;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +16,11 @@ public class Producto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	//@Column(name="nombre") -> Si el nombre del parametro del objeto difiere del atributo de la tabla 
+	
 	private String nombre;
+	
 	private String descripcion;
+	
 	private BigDecimal precio;
 	
 	public Long getId() {
