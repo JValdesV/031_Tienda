@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import cl.empresa.tienda.modelo.Categoria;
@@ -30,7 +31,7 @@ public class Producto {
 	
 	private LocalDate fechaDeRegistro = LocalDate.now();
 	
-	@Enumerated(EnumType.STRING)
+	@ManyToOne
 	private Categoria categoria;
 	
 	
