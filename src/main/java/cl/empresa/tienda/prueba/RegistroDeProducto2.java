@@ -17,8 +17,37 @@ public class RegistroDeProducto2 {
 		registrarProducto();
 		consultarEspecifico();
 		consultarTodos();
+		consultarPorNombre();
+		consultaPorNombreDeCategoria();
+		consultaDePrecioPorNombreProducto();
 		
 		
+	}
+
+	private static void consultaDePrecioPorNombreProducto() {
+		//Resumen importar entitymanager 
+		//Crear DAO -> asociar dao jpautils
+		//crear objeto -> dao.consulta()
+		//iterar resultado
+
+		EntityManager em = JPAUtils.getEntityManager();
+		ProductoDAO productoDAO = new ProductoDAO(em);
+		BigDecimal precioProducto = productoDAO.consultarPrecioPorNombreDeProducto("Samsung");
+		System.out.println(precioProducto);
+	}
+
+	private static void consultaPorNombreDeCategoria() {
+		EntityManager em = JPAUtils.getEntityManager();
+		ProductoDAO productoDAO = new ProductoDAO(em);
+		List<Producto> productos = productoDAO.consultaPorNonbreDeCategoria("CELULARES");
+		productos.forEach(producto->System.out.println(producto.getDescripcion()));
+	}
+
+	private static void consultarPorNombre() {
+		EntityManager em = JPAUtils.getEntityManager();
+		ProductoDAO productoDAO = new ProductoDAO(em);
+		List<Producto> productos = productoDAO.consultaPorNombre("Samsung");
+		productos.forEach(producto->System.out.println("Lambda: "+producto.getNombre()));
 	}
 
 	private static void consultarTodos() {
